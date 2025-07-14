@@ -1,0 +1,54 @@
+#header{
+    background-color: darkred;
+    display: flex;
+    justify-content: space-between;
+}
+#header a{
+    text-decoration: none;
+    color: cornsilk;
+}
+#header a:visited{
+    text-decoration: none;
+    color: cornsilk;
+}
+#header a:hover{
+    text-decoration: none;
+    color: azure;
+}
+.Logo{
+    font-size: larger;
+}
+#right-header{
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+    margin-right: 30px;
+    font-size: large;
+}
+#left-header{
+    display: flex;
+    justify-content: left;
+}
+#auth{
+    display: flex;
+    justify-content: center;
+    background-color: darkred;
+    margin: 125px 450px 15px;
+    padding-bottom: 50px;
+    border-radius: 30px;
+}
+#auth-form{
+    color: cornsilk;
+    display: flex;
+    justify-content: center;
+}
+.doCenter{
+    display: flex;
+    justify-content: center;
+}
+.indent{
+    padding-bottom: 15px;
+}
+a{
+
+}
