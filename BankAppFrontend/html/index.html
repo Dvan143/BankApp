@@ -6,15 +6,33 @@
 </head>
 <body>
 <div id="header">
-    <span id="left-header">
+    <span class="left-block">
         <a class="Logo">BankApp</a>
     </span>
-    <span id="right-header">
+    <span class="right-block">
         <a href="/register">Sign up</a>
         <a href="/login">Sign in</a>
     </span>
 </div>
 
+
+
+<div class="main-form">
+    <span class="left">
+        <form action="/api/login" method="post">
+            <input type="text" name="username" placeholder="Login" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button>Log in</button>
+        </form>
+    </span>
+    <span class="right">
+        <!--TODO fetching news-->
+        <div>News:</div>
+        <div id="news-form"></div>
+    </span>
+</div>
+
 <link rel="stylesheet" href="/css/styles.css">
+<script src="/js/index/fetchNews.js"></script>
 </body>
 </html>
