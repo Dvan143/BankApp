@@ -55,9 +55,13 @@
 }
 .left{
     display: flex;
-    justify-content: left;
+    flex-direction: column;
 }
 .right{
     display: flex;
-    justify-content: right;
+    justify-content: center;
+}
+#newsDiv{
+    display: flex;
+    justify-content: center;
 }

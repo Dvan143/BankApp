@@ -18,21 +18,21 @@
 
 
 <div class="main-form">
-    <span class="left">
-        <form action="/api/login" method="post">
-            <input type="text" name="username" placeholder="Login" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button>Log in</button>
-        </form>
-    </span>
+    <div class="left">
+<!--        TODO currency-->
+        <div>Eur/Usd: <span id="euro"></span></div> <br>
+        <div>Gbp/Usd: <span id="gbp"></span></div> <br>
+        <div>Jpy/Usd: <span id="jpy"></span></div> <br>
+        <div>Rub/Usd: <span id="rub"></span></div> <br>
+    </div>
     <span class="right">
-        <!--TODO fetching news-->
         <div>News:</div>
-        <div id="news-form"></div>
+        <div id="newsDiv"></div>
     </span>
 </div>
 
 <link rel="stylesheet" href="/css/styles.css">
 <script src="/js/index/fetchNews.js"></script>
+<script src="/js/index/fetchCurrency.js"></script>
 </body>
 </html>

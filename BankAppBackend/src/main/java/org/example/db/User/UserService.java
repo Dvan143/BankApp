@@ -1,8 +1,9 @@
-package org.example.db;
+package org.example.db.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -14,10 +15,12 @@ public class UserService {
     @Autowired
     PasswordEncoder encoder;
 
+    @Transactional(readOnly = true)
     public User getUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
+    @Transactional
     public void saveUser(User user){
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);

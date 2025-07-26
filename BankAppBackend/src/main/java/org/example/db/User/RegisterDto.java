@@ -1,4 +1,4 @@
-package org.example.db;
+package org.example.db.User;
 
 public class RegisterDto {
     private String username;

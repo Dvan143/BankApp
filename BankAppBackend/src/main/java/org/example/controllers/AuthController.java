@@ -2,13 +2,16 @@ package org.example.controllers;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
-import org.example.db.RegisterDto;
-import org.example.db.User;
-import org.example.db.UserDetailsServiceImpl;
-import org.example.db.UserService;
+import org.example.db.News.News;
+import org.example.db.News.NewsService;
+import org.example.db.User.RegisterDto;
+import org.example.db.User.User;
+import org.example.db.User.UserDetailsServiceImpl;
+import org.example.db.User.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,12 +22,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 @Slf4j
 @RestController
 @RequestMapping("/api")
-public class ApiController {
+public class AuthController extends ParentController{
     @Autowired
     UserService userService;
     @Autowired
@@ -33,6 +38,8 @@ public class ApiController {
     AuthenticationManager authenticationManager;
     @Autowired
     UserDetailsServiceImpl userDetailsService;
+    @Autowired
+    NewsService newsService;
 
     @PostMapping("/login")
     public void login(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password, HttpServletResponse resp) throws IOException {
@@ -69,28 +76,15 @@ public class ApiController {
         return answer;
     }
 
-    @PostConstruct
+    @EventListener(ApplicationReadyEvent.class)
     public void init(){
         User user1 = new User("admin", "admin@admin.com", "admin", "admin");
         userService.saveUser(user1);
         User user2 = new User("bobr", "user@gmail.com", "1234");
         userService.saveUser(user2);
-    }
 
-    private boolean isUserAuthorized() {
-        boolean isUserAuthorized;
-        isUserAuthorized = SecurityContextHolder.getContext()!=null &&
-                SecurityContextHolder.getContext().getAuthentication()!=null &&
-                SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
-                !(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken);
-        return isUserAuthorized;
-    }
-
-    private void redirectIfUserAuthorized(HttpServletResponse resp) throws IOException {
-        if(isUserAuthorized()) resp.sendRedirect("/");
-    }
-
-    private void redirectIfUserUnauthorized(HttpServletResponse resp) throws IOException {
-        if(!isUserAuthorized()) resp.sendRedirect("/login");
+        LocalDate date = LocalDate.now();
+        News news = new News("TestTitle", "TestContent", date, user1);
+        newsService.saveNews(news);
     }
 }

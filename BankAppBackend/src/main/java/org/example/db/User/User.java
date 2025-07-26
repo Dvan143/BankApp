@@ -1,4 +1,4 @@
-package org.example.db;
+package org.example.db.User;
 
 import jakarta.persistence.*;
 
@@ -6,8 +6,9 @@ import jakarta.persistence.*;
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "users_seq", sequenceName = "users_sequence")
+    private Long id;
     @Column
     private String username;
     @Column
