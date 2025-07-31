@@ -1,0 +1,21 @@
+projectName: BankApp
+
+spring:
+  datasource:
+    username: h2
+    password:
+    url: jdbc:h2:mem:db
+    driver-class-name: org.h2.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  data:
+    redis:
+      host: redis
+      port: 6379
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.example.db: DEBUG
+    org.example.controllers: DEBUG
