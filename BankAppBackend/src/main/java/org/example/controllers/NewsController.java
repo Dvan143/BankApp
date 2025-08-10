@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/news")
+@RequestMapping("/bankapp/news")
 public class NewsController extends ParentController{
     @Autowired
     NewsService newsService;

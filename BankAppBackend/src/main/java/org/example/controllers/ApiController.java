@@ -24,6 +24,7 @@ import java.util.Random;
 
 @Slf4j
 @RestController
+@RequestMapping("/bankapp/api")
 public class ApiController extends ParentController {
     @Autowired
     UserService userService;
@@ -42,10 +43,10 @@ public class ApiController extends ParentController {
             User user = userService.getUserByUsername(username);
             userService.changeName(user, name);
             log.debug("User {} requested to change name to {}",user.getUsername(), name);
-            resp.sendRedirect("/profile");
+            resp.sendRedirect("/bankapp/profile");
         } catch (NullPointerException ex) {
             log.debug("Anonymous User with ip: {} tried to change name", req.getRemoteAddr());
-            resp.sendRedirect("/error");
+            resp.sendRedirect("/bankapp/error");
         }
     }
 
@@ -57,10 +58,10 @@ public class ApiController extends ParentController {
             User user = userService.getUserByUsername(username);
             userService.changeBirthday(user, birthday);
             log.debug("User {} requested to change birthday date to {}",user.getUsername(), birthday);
-            resp.sendRedirect("/profile");
+            resp.sendRedirect("/bankapp/profile");
         } catch (NullPointerException ex) {
             log.debug("Anonymous User with ip: {} tried to change birthday", req.getRemoteAddr());
-            resp.sendRedirect("/error");
+            resp.sendRedirect("/bankapp/error");
         }
     }
 
@@ -72,7 +73,7 @@ public class ApiController extends ParentController {
             User user = userService.getUserByUsername(username);
             return userService.getUserInfo(user);
         } catch (NullPointerException ex) {
-            resp.sendRedirect("/error");
+            resp.sendRedirect("/bankapp/error");
         }
         return null;
     }

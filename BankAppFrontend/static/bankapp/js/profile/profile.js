@@ -1,4 +1,4 @@
-fetch('/api/getUserInfo')
+fetch('/bankapp/api/getUserInfo')
     .then(data => data.json())
     .then(data => {
         document.getElementById('myName').innerText = data.name ?? 'Not set';
@@ -51,7 +51,7 @@ function showChangingEmailForm() {
 function sendEmailVerification() {
     const to = document.getElementById('email').value;
     const statusAnswer = document.getElementById('status');
-    fetch('/api/changeEmail', {
+    fetch('/bankapp/api/changeEmail', {
         method: 'POST',
         body: JSON.stringify({email:to}),
         headers: {
@@ -73,7 +73,7 @@ function sendEmailVerification() {
 function checkCode() {
     const email = document.getElementById('email').value;
     const code = document.getElementById('verifCode').value;
-    fetch('/api/checkVerificationCode', {
+    fetch('/bankapp/api/checkVerificationCode', {
         method: 'POST',
         body: JSON.stringify({verificationCode: code, email: email}),
         headers: {

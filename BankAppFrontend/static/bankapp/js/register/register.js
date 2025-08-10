@@ -8,7 +8,7 @@ function register() {
         const username = document.getElementById('username').value
         const email = document.getElementById('email').value
 
-        fetch('/auth/register',{
+        fetch('/bankapp/auth/register',{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

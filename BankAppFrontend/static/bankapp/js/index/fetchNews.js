@@ -1,4 +1,4 @@
-fetch('/news/latest')
+fetch('/bankapp/news/latest')
     .then(resp => resp.json())
     .then(fetchedNews => {
         const newsDiv = document.getElementById('newsDiv');

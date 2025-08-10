@@ -17,10 +17,10 @@ public abstract class ParentController {
     }
 
     protected void redirectIfUserAuthorized(HttpServletResponse resp) throws IOException {
-        if(isUserAuthorized()) resp.sendRedirect("/profile");
+        if(isUserAuthorized()) resp.sendRedirect("/bankapp/profile");
     }
 
     protected void redirectIfUserUnauthorized(HttpServletResponse resp) throws IOException {
-        if(!isUserAuthorized()) resp.sendRedirect("/login");
+        if(!isUserAuthorized()) resp.sendRedirect("/bankapp/login");
     }
 }

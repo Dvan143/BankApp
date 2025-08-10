@@ -11,7 +11,7 @@ import java.security.Principal;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/transfer")
+@RequestMapping("/bankapp/api/transfer")
 public class TransferController extends ParentController {
     @Autowired
     UserService userService;

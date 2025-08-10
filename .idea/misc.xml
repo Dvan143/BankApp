@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/BankAppLoggingService" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
@@ -8,6 +11,7 @@
         <option value="$PROJECT_DIR$/back/pom.xml" />
         <option value="$PROJECT_DIR$/../Front/pom.xml" />
         <option value="$PROJECT_DIR$/BankAppBackend/pom.xml" />
+        <option value="$PROJECT_DIR$/BankAppLoggingService/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

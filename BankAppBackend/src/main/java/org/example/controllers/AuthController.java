@@ -17,6 +17,7 @@ import java.util.*;
 
 @Slf4j
 @RestController
+@RequestMapping("/bankapp/auth")
 public class AuthController extends ParentController{
     @Autowired
     AuthenticationManager authenticationManager;
@@ -33,10 +34,10 @@ public class AuthController extends ParentController{
             UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username,password);
             authenticationManager.authenticate(authToken);
             log.debug("User {} logging", username);
-            resp.sendRedirect("/");
+            resp.sendRedirect("/bankapp");
         } catch (AuthenticationException ex) { // TODO wrong-password page
             log.debug("Anonymous User with ip {} entered wrong password", req.getRemoteAddr());
-            resp.sendRedirect("/wrong-credentials");
+            resp.sendRedirect("/bankapp/wrong-credentials");
         }
     }
 

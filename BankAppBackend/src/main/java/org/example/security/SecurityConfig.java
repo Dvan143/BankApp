@@ -17,11 +17,11 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .authorizeHttpRequests(auth -> auth
+                .authorizeHttpRequests(auth -> auth // TODO secured api endpoints
                         .anyRequest().permitAll())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .csrf(csrf -> csrf.disable())
-                .formLogin(login -> login.loginPage("/api/login").defaultSuccessUrl("/profile"))
+                .formLogin(login -> login.loginPage("/bankapp/auth/login").defaultSuccessUrl("/bankapp/profile"))
                 .build();
     }
 

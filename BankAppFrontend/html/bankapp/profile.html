@@ -19,14 +19,14 @@
 <div class="left-block-profile">
     <div>My name: <span id="myName"></span> <button onclick="showChangingNameForm()" id="buttonChangeName">Change</button></div>
     <div id="change-name-form" style="display: none">
-        <form action="/api/changeName" method="post">
+        <form action="/bankapp/api/changeName" method="post">
             <input type="text" name="name">
             <button>Change name</button>
         </form>
     </div>
     <div>My birthday date: <span id="myBirthdayDate"></span> <button onclick="showChangingBirthdayForm()" id="buttonChangeBirthday"> Change</button></div>
     <div id="change-birthday-form" style="display: none">
-        <form action="/api/changeBirthday" method="post">
+        <form action="/bankapp/api/changeBirthday" method="post">
             <input type="date" name="birthday" id="birthday" min="1900-01-01" max="2020-01-01">
             <button>Change birthday</button>
         </form>
@@ -57,9 +57,9 @@
     </div>
 </div>
 <div class="indent">
-    <a href="/transfer">Transfer to another person</a> <br>
+    <a href="/bankapp/transfer">Transfer to another person</a> <br>
 </div>
-<link rel="stylesheet" href="/css/styles.css">
-<script src="/js/profile/profile.js"></script>
+<link rel="stylesheet" href="/bankapp/css/styles.css">
+<script src="/bankapp/js/profile/profile.js"></script>
 </body>
 </html>

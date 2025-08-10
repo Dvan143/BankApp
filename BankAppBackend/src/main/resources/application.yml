@@ -3,6 +3,3 @@ spring:
     name: bankApp
   profiles:
     active: prod
-server:
-  servlet:
-    context-path: /bankapp

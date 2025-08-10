@@ -1,4 +1,4 @@
-fetch('/api/getUserInfo')
+fetch('/bankapp/api/getUserInfo')
     .then(data => data.json())
     .then(data => {
         document.getElementById('myUsdAccount').innerText = data.usdAccount;
