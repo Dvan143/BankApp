@@ -1,7 +1,7 @@
-package org.example.db.User;
+package org.example.db.User.Exceptions;
 
-public class NotExistCurrency extends Exception {
-    public NotExistCurrency(String message) {
+public class NotExistCurrencyException extends Exception {
+    public NotExistCurrencyException(String message) {
         super(message);
     }
 }

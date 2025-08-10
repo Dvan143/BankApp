@@ -1,4 +1,4 @@
-projectName: BankApp
+projectName: ${PROJECT_NAME}
 
 spring:
   datasource:

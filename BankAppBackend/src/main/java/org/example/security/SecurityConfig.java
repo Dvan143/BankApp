@@ -21,7 +21,7 @@ public class SecurityConfig {
                         .anyRequest().permitAll())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .csrf(csrf -> csrf.disable())
-                .formLogin(login -> login.loginPage("/api/login").defaultSuccessUrl("/"))
+                .formLogin(login -> login.loginPage("/api/login").defaultSuccessUrl("/profile"))
                 .build();
     }
 

@@ -2,10 +2,13 @@ package org.example.db.News;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.example.db.User.User;
 
 import java.time.LocalDate;
 
+@Slf4j
 @Entity
 @Getter
 public class News {
@@ -31,6 +34,8 @@ public class News {
         this.content = content;
         this.dateOfPublication = dateOfPublication;
         this.author = author;
+
+        log.debug("Added news news-page: {} by {}", title, author);
     }
 
 }

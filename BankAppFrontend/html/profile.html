@@ -5,18 +5,61 @@
     <title>BankApp profile page</title>
 </head>
 <body>
-<div>My name: </div>
-<div>My email: </div>
-<div>
-    My wallet:
-    <span>USD</span>
-    <span>GBP</span>
-    <span>JPY</span>
-    <span>RUB</span>
+<div id="header">
+    <span class="left-block">
+        <a class="Logo">BankApp</a>
+    </span>
+    <span class="right-block">
+        <a href="#">Profile</a>
+<!--        TODO pages-->
+        <a>Transaction history</a>
+        <a>Settings</a>
+    </span>
 </div>
-<div>
-    <a>Transfer to another person</a>
-    <a>Transfer between my accounts</a>
+<div class="left-block-profile">
+    <div>My name: <span id="myName"></span> <button onclick="showChangingNameForm()" id="buttonChangeName">Change</button></div>
+    <div id="change-name-form" style="display: none">
+        <form action="/api/changeName" method="post">
+            <input type="text" name="name">
+            <button>Change name</button>
+        </form>
+    </div>
+    <div>My birthday date: <span id="myBirthdayDate"></span> <button onclick="showChangingBirthdayForm()" id="buttonChangeBirthday"> Change</button></div>
+    <div id="change-birthday-form" style="display: none">
+        <form action="/api/changeBirthday" method="post">
+            <input type="date" name="birthday" id="birthday" min="1900-01-01" max="2020-01-01">
+            <button>Change birthday</button>
+        </form>
+    </div>
+    <div>My email: <span id="myEmail"></span> <button onclick="showChangingEmailForm()" id="buttonChangeEmail">Change</button></div>
+    <div id="change-email-form" style="display: none">
+        <form>
+            <input type="email" name="email" id="email">
+            <button type="button" onclick="sendEmailVerification()">Change email</button>
+            <div id="status"></div>
+            <div id="statusCode"></div>
+        </form>
+        <div id="message-sent-answer" style="display: none">
+            <div>Message has been sent</div>
+            <div>Verification code</div>
+            <input type="text" name="verificationCode" id="verifCode">
+            <button type="button" onclick="checkCode()">Check</button>
+        </div>
+    </div>
 </div>
+<div class="right-block-profile">
+    <div class="table">
+        My wallet:
+        <span>USD <span id="myUsdAccount"></span></span>
+        <span>GBP <span id="myGbpAccount"></span></span>
+        <span>JPY <span id="myJpyAccount"></span></span>
+        <span>RUB <span id="myRubAccount"></span></span>
+    </div>
+</div>
+<div class="indent">
+    <a href="/transfer">Transfer to another person</a> <br>
+</div>
+<link rel="stylesheet" href="/css/styles.css">
+<script src="/js/profile/profile.js"></script>
 </body>
 </html>

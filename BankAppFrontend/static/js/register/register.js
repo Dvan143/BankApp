@@ -8,7 +8,7 @@ function register() {
         const username = document.getElementById('username').value
         const email = document.getElementById('email').value
 
-        fetch('/api/register',{
+        fetch('/auth/register',{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -19,7 +19,7 @@ function register() {
             .then(data => {
                 console.log(data);
                 if(data.status==='ok'){
-                    window.location.replace('/');
+                    window.location.replace('/profile');
                 } else if(data.status==='bothExist') {
                     answer.innerText = 'Username and email are exist';
                 } else if(data.status==='emailExist') {

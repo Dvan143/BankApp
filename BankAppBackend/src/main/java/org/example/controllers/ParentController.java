@@ -17,7 +17,7 @@ public abstract class ParentController {
     }
 
     protected void redirectIfUserAuthorized(HttpServletResponse resp) throws IOException {
-        if(isUserAuthorized()) resp.sendRedirect("/");
+        if(isUserAuthorized()) resp.sendRedirect("/profile");
     }
 
     protected void redirectIfUserUnauthorized(HttpServletResponse resp) throws IOException {

@@ -2,6 +2,7 @@ services:
   frontend:
     container_name: frontend
     ports:
+      - "443:443"
       - "80:80"
     build:
       context: ./BankAppFrontend
@@ -15,6 +16,8 @@ services:
       context: ./BankAppBackend
     depends_on:
       - redis
+    env_file:
+      - .env
   redis:
     container_name: redis
     image: redis:latest
@@ -23,5 +26,33 @@ services:
     volumes:
       - redis_data:/data
     command: [ "redis-server", "--appendonly", "yes" ]
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    env_file:
+      - .env
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+  emailVerifier:
+    image: dvan143/emailverifier
+    container_name: emailVerifier
+    env_file:
+      - .env
+    depends_on:
+      - smtpService
+      - frontend
+      - rabbitmq
+  smtpService:
+    image: boky/postfix:4.4.0-debian
+    container_name: smtpService
+    env_file:
+      - .env
+    ports:
+      - "25:25"
+
 volumes:
   redis_data:
+  rabbitmq-data:

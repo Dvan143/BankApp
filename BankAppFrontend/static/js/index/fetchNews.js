@@ -1,4 +1,3 @@
-// TODO
 fetch('/news/latest')
     .then(resp => resp.json())
     .then(fetchedNews => {

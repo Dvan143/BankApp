@@ -1,7 +1,11 @@
 package org.example.db.User;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Entity
 @Table(name = "users")
 public class User {
@@ -9,14 +13,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "users_seq", sequenceName = "users_sequence")
     private Long id;
-    @Column
+    @Getter
     private String username;
-    @Column
+    @Getter
+    @Setter
     private String password;
-    @Column
+    @Getter
     private String email;
-    @Column
+    @Getter
     private String role;
+    @Getter
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "userinfo_id")
+    private UserInfo userInfo;
 
     public User() {
     }
@@ -26,6 +35,10 @@ public class User {
         this.email = email;
         this.password = password;
         role = "user";
+        UserInfo userInfo = new UserInfo();
+        this.userInfo = userInfo;
+
+        log.debug("User {} created", username);
     }
 
     public User(String username, String email, String password, String role) {
@@ -33,26 +46,11 @@ public class User {
         this.email = email;
         this.password = password;
         this.role = role;
+        UserInfo userInfo = new UserInfo();
+        this.userInfo = userInfo;
+
+        log.debug("User {} created", username);
     }
 
 
-    public String getUsername() {
-        return username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
