@@ -2,6 +2,7 @@ services:
   frontend:
     container_name: frontend
     ports:
+#      - "443:443"
       - "80:80"
     build:
       context: ./BankAppFrontend
@@ -10,18 +11,63 @@ services:
   backend:
     container_name: backend
     ports:
-      - "8080:8080"
+      - "9090:9090"
     build:
       context: ./BankAppBackend
     depends_on:
       - redis
+      - loggingservice
+    env_file:
+      - .env
   redis:
     container_name: redis
     image: redis:latest
     ports:
       - "6379:6379"
-    volumes:
-      - redis_data:/data
     command: [ "redis-server", "--appendonly", "yes" ]
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    env_file:
+      - .env
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+  emailverifier:
+    image: dvan143/emailverifier
+    container_name: emailVerifier
+    env_file:
+      - .env
+    depends_on:
+      - smtpservice
+      - frontend
+      - rabbitmq
+  smtpservice:
+    image: boky/postfix:4.4.0-debian
+    container_name: smtpService
+    env_file:
+      - .env
+    ports:
+      - "25:25"
+  loggingservice:
+    build:
+      context: ./BankAppLoggingService
+    container_name: loggingService
+    env_file:
+      - .env
+    depends_on:
+      - elasticsearch
+  elasticsearch:
+    image: elasticsearch:9.1.0
+    container_name: elasticsearch
+    env_file:
+      - .env
+    volumes:
+      - elastic-data:/var/lib/elasticsearch
+    mem_limit: 3g
+
 volumes:
-  redis_data:
+  rabbitmq-data:
+  elastic-data:

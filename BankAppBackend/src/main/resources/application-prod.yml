@@ -1,0 +1,26 @@
+projectName: ${PROJECT_NAME}
+
+spring:
+  datasource:
+    username: h2
+    password:
+    url: jdbc:h2:mem:db
+    driver-class-name: org.h2.Driver
+  rabbitmq:
+    host: ${RABBITMQ_HOST}
+    port: 5672
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  data:
+    redis:
+      host: redis
+      port: 6379
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.example.db: DEBUG
+    org.example.controllers: DEBUG

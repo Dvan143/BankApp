@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BankApp main page</title>
+</head>
+<body>
+<div id="header">
+    <span class="left-block">
+        <a class="Logo">BankApp</a>
+    </span>
+    <span class="right-block">
+        <a href="/bankapp/register">Sign up</a>
+        <a href="/bankapp/login">Sign in</a>
+    </span>
+</div>
+
+
+
+<div class="main-form">
+    <div class="left">
+        <div>Eur/Usd: <span id="euro"></span></div> <br>
+        <div>Gbp/Usd: <span id="gbp"></span></div> <br>
+        <div>Jpy/Usd: <span id="jpy"></span></div> <br>
+        <div>Rub/Usd: <span id="rub"></span></div> <br>
+    </div>
+    <span class="right">
+        <div>News:</div>
+        <div id="newsDiv"></div>
+    </span>
+</div>
+
+<link rel="stylesheet" href="/bankapp/css/styles.css">
+<script src="/bankapp/js/index/fetchNews.js"></script>
+<script src="/bankapp/js/index/fetchCurrency.js"></script>
+</body>
+</html>

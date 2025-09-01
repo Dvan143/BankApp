@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BankApp registration page</title>
+</head>
+<body>
+<div id="header">
+    <span class="left-block">
+        <a class="Logo">BankApp</a>
+    </span>
+    <span class="right-block">
+        <a href="/register">Sign up</a>
+        <a href="/login">Sign in</a>
+    </span>
+</div>
+<div id="auth">
+    <div id="auth-form">
+        <form>
+            <div class="doCenter">Username</div>
+            <input type="text" name="username" id="username" required>
+            <div class="indent"></div>
+            <div class="doCenter">Email</div>
+            <input type="email" name="email" id="email" required>
+            <div class="indent"></div>
+            <div class="doCenter">Password</div>
+            <input type="password" name="password" id="password" required> <br> <br>
+            <div class="doCenter">Confirm password</div>
+            <input type="password" name="confirmPassword" id="confirmPassword" required> <br> <br>
+            <div class="indent"></div>
+            <div class="indent" id="button"><button>Register</button></div>
+            <div id="answer"></div>
+            <script>
+                const button = document.getElementById('button');
+                document.addEventListener('submit', e => {
+                    e.preventDefault();
+                    register();
+                })
+            </script>
+        </form>
+    </div>
+</div>
+<script src="/bankapp/js/register/register.js"></script>
+<link rel="stylesheet" href="/bankapp/css/styles.css">
+</body>
+</html>

@@ -18,16 +18,22 @@
 .Logo{
     font-size: larger;
 }
-#right-header{
+.right-block{
     display: flex;
     justify-content: space-between;
     gap: 35px;
     margin-right: 30px;
     font-size: large;
 }
-#left-header{
+.left-block{
+    float: right;
+}
+.left-block-profile{
+    float: left;
+}
+.right-block-profile{
     display: flex;
-    justify-content: left;
+    justify-content: right;
 }
 #auth{
     display: flex;
@@ -49,6 +55,23 @@
 .indent{
     padding-bottom: 15px;
 }
-a{
-
+.main-form{
+    display: flex;
+    justify-content: space-between;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+}
+.right{
+    display: flex;
+    justify-content: center;
+}
+#newsDiv{
+    display: flex;
+    justify-content: center;
+}
+.table{
+    display: flex;
+    flex-direction: column;
 }

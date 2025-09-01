@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer page</title>
+</head>
+<body>
+<div id="header">
+    <span class="left-block">
+        <a class="Logo">BankApp</a>
+    </span>
+    <span class="right-block">
+        <a href="#">Profile</a>
+        <a>Transaction history</a>
+        <a>Settings</a>
+    </span>
+</div>
+<div class="left-block-profile">
+    <label for="usernameOfRecipient">Username of recipient</label>
+    <input type="text" id="usernameOfRecipient" required>
+    <button type="button" onclick="checkUsername()">Continue</button>
+    <div id="status"></div>
+    <div id="transfer-block" style="display: none">
+        <label for="moneyAmount">Enter the amount of money to transfer</label>
+        <input type="text" id="moneyAmount" required> <br>
+        <select id="currency">
+            <option value="usdAccount">Usd account</option>
+            <option value="gbpAccount">Gbp account</option>
+            <option value="jpyAccount">Jpy account</option>
+            <option value="rubAccount">Rub account</option>
+        </select>
+        <button type="button" onclick="sendMoney()">Send</button>
+        <div id="money-status"></div>
+    </div>
+</div>
+<div class="right-block-profile">
+    <div class="table">
+        My wallet:
+        <span>USD <span id="myUsdAccount"></span></span>
+        <span>GBP <span id="myGbpAccount"></span></span>
+        <span>JPY <span id="myJpyAccount"></span></span>
+        <span>RUB <span id="myRubAccount"></span></span>
+    </div>
+</div>
+<link href="/bankapp/css/styles.css" rel="stylesheet">
+<script src="/bankapp/js/transfer/transfer.js"></script>
+</body>
+</html>

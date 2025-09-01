@@ -1,4 +1,4 @@
-package org.example.db;
+package org.example.db.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
