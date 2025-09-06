@@ -1,0 +1,37 @@
+#Main data
+PROJECT_NAME=BankApp
+
+#emailverifier settings
+SMTP_HOST=smtpService
+SMTP_PORT=25
+MAIL_FROM=noreply@#.ru
+
+#SMTP server
+SMTP_SERVER_HOSTNAME=#.ru
+SMTP_USERNAME=
+SMTP_PASSWORD=
+MAIL_DOMAIN=#.ru
+RELAY_NETWORKS=192.168.0.0/16
+SMTP_TLS_SECURITY_LEVEL=may
+ALLOWED_SENDER_DOMAINS=#.ru
+
+# for rabbitmq new user
+RABBITMQ_DEFAULT_USER=
+RABBITMQ_DEFAULT_PASS=
+
+# for application-prod.yml
+RABBITMQ_HOST=rabbitmq
+RABBITMQ_USERNAME=
+RABBITMQ_PASSWORD=
+
+# Mongo settings
+MONGO_INITDB_ROOT_USERNAME=
+MONGO_INITDB_ROOT_PASSWORD=
+
+#Logger Service
+MONGO_USERNAME=
+MONGO_PASSWORD=
+
+#BankApp settings
+# Cooldown in minutes
+LOGIN_COOLDOWN=10
