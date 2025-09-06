@@ -5,7 +5,7 @@
 ### This project was made to practice many development tech: RabbitMq, Nginx, Spring Security, Email Verification Service.
 ### Project has purpose of learning and done with OpenSource principles. Project is distributed with MIT Licence.
 
-### Technologes in this project: Java / Spring Framework / RabbitMq / PostgreSQL / JS / HTML / CSS
+### Technologes in this project: Java / Spring Framework / RabbitMq / PostgreSQL / MongoDb / Redis / JS / HTML / CSS
 
 #### How to set up a project:
 
