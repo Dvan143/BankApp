@@ -24,3 +24,5 @@ Step 3: Set up the .env file
 Step 4: Start all docker conatiners
 
 Step 5: You are awesome!
+
+All rights to SmtpService belongs to [bokysan](https://github.com/bokysan)
